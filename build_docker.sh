@@ -1,4 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
 app="docker.test"
+
 docker build -t ${app} .
-docker run -d -p 8000:8000 --name=${app} 
+
+docker run -d ${app} -p 56733:8000 \
+
+  --name ${app} \
+
+ -v $PWD:/app 
