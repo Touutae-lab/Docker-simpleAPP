@@ -6,6 +6,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     pip3 install -r requirement.txt
 
 COPY . /app
+RUN chown -R 1000 /app/
 RUN chmod 755 /app/gunicorn_starter.sh
 ENTRYPOINT [ "./gunicorn_starter.sh" ]
 
